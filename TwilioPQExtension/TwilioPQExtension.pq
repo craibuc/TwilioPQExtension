@@ -1,7 +1,7 @@
-﻿section Twilio;
+﻿section TwilioPQExtension;
 
-[DataSource.Kind="Twilio", Publish="Twilio.Publish"]
-shared Twilio.Contents = (optional message as text) =>
+[DataSource.Kind="TwilioPQExtension", Publish="TwilioPQExtension.Publish"]
+shared TwilioPQExtension.Contents = () =>
     let
         //data = Messages()
         data = NavigationTable()
@@ -10,7 +10,7 @@ shared Twilio.Contents = (optional message as text) =>
 ;
 
 // Data Source Kind description
-Twilio = [
+TwilioPQExtension = [
     Authentication = [
         UsernamePassword = [
             UsernameLabel=Extension.LoadString("UsernameLabel"),
@@ -21,16 +21,16 @@ Twilio = [
 ];
 
 // Data Source UI publishing description
-Twilio.Publish = [
+TwilioPQExtension.Publish = [
     Beta = true,
-    Category = "Other",
+    Category = "Online Services",
     ButtonText = { Extension.LoadString("ButtonTitle"), Extension.LoadString("ButtonHelp") },
     LearnMoreUrl = "https://github.com/craibuc/TwilioPQExtension",
-    SourceImage = Twilio.Icons,
-    SourceTypeImage = Twilio.Icons
+    SourceImage = TwilioPQExtension.Icons,
+    SourceTypeImage = TwilioPQExtension.Icons
 ];
 
-Twilio.Icons = [
+TwilioPQExtension.Icons = [
     Icon16 = { Extension.Contents("Twilio16.png"), Extension.Contents("Twilio20.png"), Extension.Contents("Twilio24.png"), Extension.Contents("Twilio32.png") },
     Icon32 = { Extension.Contents("Twilio32.png"), Extension.Contents("Twilio40.png"), Extension.Contents("Twilio48.png"), Extension.Contents("Twilio64.png") }
 ];
