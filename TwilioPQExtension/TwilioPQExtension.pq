@@ -1,10 +1,10 @@
 ﻿section Twilio;
 
 [DataSource.Kind="Twilio", Publish="Twilio.Publish"]
-shared Twilio.Contents = (optional BaseUri as text) =>
+shared Twilio.Contents = (optional message as text) =>
     let
-        data = Messages()
-        //data = NavigationTable()
+        //data = Messages()
+        data = NavigationTable()
     in
         data
 ;
@@ -12,9 +12,27 @@ shared Twilio.Contents = (optional BaseUri as text) =>
 // Data Source Kind description
 Twilio = [
     Authentication = [
-        UsernamePassword = [Label="Twilio credentials", UsernameLabel="Account SID",PasswordLabel="Authentication Token"]
+        UsernamePassword = [
+            UsernameLabel=Extension.LoadString("UsernameLabel"),
+            PasswordLabel=Extension.LoadString("PasswordLabel")
+        ]
     ],
     Label = Extension.LoadString("DataSourceLabel")
+];
+
+// Data Source UI publishing description
+Twilio.Publish = [
+    Beta = true,
+    Category = "Other",
+    ButtonText = { Extension.LoadString("ButtonTitle"), Extension.LoadString("ButtonHelp") },
+    LearnMoreUrl = "https://github.com/craibuc/TwilioPQExtension",
+    SourceImage = Twilio.Icons,
+    SourceTypeImage = Twilio.Icons
+];
+
+Twilio.Icons = [
+    Icon16 = { Extension.Contents("Twilio16.png"), Extension.Contents("Twilio20.png"), Extension.Contents("Twilio24.png"), Extension.Contents("Twilio32.png") },
+    Icon32 = { Extension.Contents("Twilio32.png"), Extension.Contents("Twilio40.png"), Extension.Contents("Twilio48.png"), Extension.Contents("Twilio64.png") }
 ];
 
 /*
@@ -150,7 +168,6 @@ Table.GenerateByPage = (getNextPage as function) as table =>
             )
 ;
 
-
 /*
 Purpose:
     Create a navigation table 
@@ -178,18 +195,3 @@ Table.ToNavigationTable = (
     in
         navigationTable
 ;
-
-// Data Source UI publishing description
-Twilio.Publish = [
-    Beta = true,
-    Category = "Other",
-    ButtonText = { Extension.LoadString("ButtonTitle"), Extension.LoadString("ButtonHelp") },
-    LearnMoreUrl = "https://powerbi.microsoft.com/",
-    SourceImage = Twilio.Icons,
-    SourceTypeImage = Twilio.Icons
-];
-
-Twilio.Icons = [
-    Icon16 = { Extension.Contents("Twilio16.png"), Extension.Contents("Twilio20.png"), Extension.Contents("Twilio24.png"), Extension.Contents("Twilio32.png") },
-    Icon32 = { Extension.Contents("Twilio32.png"), Extension.Contents("Twilio40.png"), Extension.Contents("Twilio48.png"), Extension.Contents("Twilio64.png") }
-];

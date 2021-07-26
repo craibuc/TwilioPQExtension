@@ -64,9 +64,12 @@
     <Compile Include="resources.resx">
       <SubType>Code</SubType>
     </Compile>
-    <Content Include="TwilioPQExtension.pq">
+    <Content Include=".gitignore">
       <SubType>Content</SubType>
     </Content>
+    <Compile Include="TwilioPQExtension.pq">
+      <SubType>Content</SubType>
+    </Compile>
     <Content Include="TwilioPQExtension.query.pq">
       <SubType>Content</SubType>
     </Content>

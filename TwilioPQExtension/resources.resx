@@ -124,6 +124,12 @@
     <value>Twilio</value>
   </data>
   <data name="DataSourceLabel" xml:space="preserve">
-    <value>Twilio</value>
+    <value>Twilio API</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="UsernameLabel" xml:space="preserve">
+    <value>Account SID</value>
   </data>
 </root>
