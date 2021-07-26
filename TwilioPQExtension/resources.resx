@@ -121,7 +121,7 @@
     <value>Connect to Twilio</value>
   </data>
   <data name="ButtonTitle" xml:space="preserve">
-    <value>Twilio</value>
+    <value>TwilioPQExtension</value>
   </data>
   <data name="DataSourceLabel" xml:space="preserve">
     <value>Twilio API</value>
